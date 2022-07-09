@@ -4,6 +4,7 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { CookiesProvider } from 'react-cookie'
 
 const queryClient = new QueryClient()
 
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <CookiesProvider>
+        <App />
+      </CookiesProvider>
     </QueryClientProvider>
   </React.StrictMode>
 )
