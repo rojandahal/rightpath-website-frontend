@@ -7,10 +7,13 @@ import { RULES } from "../../utils/RULES";
 import ErrorMessage from "../Helpers/ErrorMessage";
 import Spinner from "../Loaders/Spinner";
 import "./AdminPage.css"
+import { Cookies } from 'react-cookie'
+import { encryptData } from "../../utils/EncryptDecrypt";
 axios.defaults.withCredentials = true
 
 const AdminPage = () => {
     const navigate = useNavigate();
+    const cookies = new Cookies()
     const {register,handleSubmit, formState: {errors},setError, clearErrors, watch} = useForm()
 
   function useUser(data) {
@@ -22,7 +25,13 @@ const AdminPage = () => {
         },)
     }, { enabled: false, 
       onSuccess: res => {
-        if(res?.data?.token) navigate('/rightpath/admin/homepage')
+        if(res?.data?.token) {
+          if(res?.data?.user?.role === 'admin'){
+            cookies.set('token', res?.data?.token)
+            cookies.set('user', encryptData(res?.data?.user))
+            navigate('/rightpath/admin/homepage')
+          }
+        }
       },
       onError: (err) => {
         if(err.response?.data){
