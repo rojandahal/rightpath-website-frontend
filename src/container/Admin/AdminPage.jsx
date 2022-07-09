@@ -1,72 +1,71 @@
 import axios from "axios";
 import React from "react";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useQuery } from "react-query";
 import { useNavigate } from "react-router";
+import { RULES } from "../../utils/RULES";
+import ErrorMessage from "../Helpers/ErrorMessage";
+import Spinner from "../Loaders/Spinner";
 import "./AdminPage.css"
+axios.defaults.withCredentials = true
 
 const AdminPage = () => {
     const navigate = useNavigate();
-    const [email, setEmail] = useState("");
-    const [password,setPassword] = useState("");
+    const {register,handleSubmit, formState: {errors},setError, clearErrors, watch} = useForm()
 
-    const onEmailHandler=(event)=>{
-        setEmail(event.target.value);
-        console.log(email);
-    };
-    const onPasswordHandler = (event) =>{
-        setPassword(event.target.value);
-        console.log(password);
-    }
-
-
-    const onSubmitHandler= async ()=>{
-        const data = {
-            email,
-            password,
-        };
-
-        axios.post("https://rightpathapi.herokuapp.com/api/v1/auth/login" , data,{
-            withCredentials: true,
+  function useUser(data) {
+    return useQuery('fetchUser', async () => {
+      return await axios.post("https://rightpathapi.herokuapp.com/api/v1/auth/login" , {...data},{
             headers: {
                 "Content-Type": "application/json"
             }
-        })
-        .then ((response) => {
-            console.log(response.data);
-            navigate("/rightpath/admin/homepage");
-        })
-        .catch((error) =>{
-            console.log(error.message);
-        })
+        },)
+    }, { enabled: false, 
+      onSuccess: res => {
+        if(res?.data?.token) navigate('/rightpath/admin/homepage')
+      },
+      onError: (err) => {
+        if(err.response?.data){
+          setError('SubmitError', {type: 'custom', message: err.response?.data?.error})
+        }
+      }, 
+      retry: 0 });
+  }
+
+  const {refetch, isLoading} =  useUser({email:watch('email') , password: watch('password')})
+  
+    const onSubmit= async ()=>{
+        await refetch()
     };
   return (
     <div className="all-contain">
       <div className="Auth-form-container">
-        <form className="Auth-form">
+        <form className="Auth-form" onSubmit={handleSubmit(onSubmit)}>
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="form-group mt-3">
-              <label>Email address</label>
+              <label className={`${errors?.email && 'warrning'}`}>Email address *</label>
               <input
-                type="email"
-                className="form-control mt-1"
+                type="text"
+                className={`form-control mt-1 ${errors?.email && 'warrning'}`}
                 placeholder="Enter email"
-                onChange={onEmailHandler}
+                {...register('email', {...RULES.email, onChange: () => clearErrors('SubmitError')})}
               />
             </div>
             <div className="form-group mt-3">
-              <label>Password</label>
+              <label className={`${errors?.password && 'warrning'}`}>Password *</label>
               <input
                 type="password"
-                className="form-control mt-1"
+                className={`form-control mt-1 ${errors?.password && 'warrning'}`}
                 placeholder="Enter password"
-                onChange={onPasswordHandler}
+                {...register('password',  {...RULES.password, onChange: () => clearErrors('SubmitError')})}
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="button" className="btn btn-primary" onClick={onSubmitHandler}>
-                Submit
+              <button type="submit" className="btn btn-primary">
+                {isLoading ? <Spinner /> : 'Submit'}
               </button>
+              {errors?.SubmitError && <ErrorMessage errors={errors} type="SubmitError" />} 
             </div>
             <p className="forgot-password text-right mt-2">
               Forgot <a href="#">password?</a>
