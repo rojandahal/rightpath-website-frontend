@@ -24,6 +24,18 @@
     padding-left: 12%;
     padding-right: 12%;
   }
+
+  .warrning {
+    color: red;
+    border-color: red;
+  }
+
+  .Auth-for-error {
+    margin-top: 3px;
+    color: red;
+    font-size: 14px;
+    font-weight: 600;
+  }
   
   .Auth-form-title {
     text-align: center;
