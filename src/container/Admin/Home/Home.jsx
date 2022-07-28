@@ -1,29 +1,30 @@
 import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import { Cookies } from 'react-cookie'
+import SideBar from "../SideBar/SideBar";
+import NavBar from "../NavBar/NavBar";
+import Tables from "../Table/Table";
+import './Home.css'
+import { ADMINLOGIN } from "../../Constants/RoutesConstants";
 
 const AdminPageHome = () => {
   const navigate = useNavigate();
-  const cookies = new Cookies()
-  const buttonClick = async () => {
-    axios
-      .get("https://rightpathapi.herokuapp.com/api/v1/auth/logout")
-      .then((res) => {
-        if(res?.data?.status ==='Succes'){
-          cookies.remove('token')
-          cookies.remove('user')
-          navigate("/rightpath/admin");
-        }
-      });
+  const logoutButtonHandler = () => {
+          localStorage.removeItem('token')
+          localStorage.removeItem('user')
+          navigate(ADMINLOGIN);
   };
   return (
-    <div>
-      <button type="submit" onClick={buttonClick}>
-        Logout
-      </button>
-      <h1>Logged in successful</h1>
-    </div>
+    <div className="home">
+            <SideBar logoutButtonHandler={logoutButtonHandler}/>
+            <div className="homeContainer">
+                <NavBar />
+                <div className="listContainer">
+                    <div className="listTitle">Latest Transactions</div>
+                    <Tables />
+                </div>
+            </div>
+        </div>
   );
 };
 
