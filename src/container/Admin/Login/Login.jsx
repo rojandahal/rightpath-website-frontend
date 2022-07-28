@@ -7,18 +7,18 @@ import { RULES } from "../../../utils/RULES";
 import ErrorMessage from "../../Helpers/ErrorMessage";
 import Spinner from "../../Loaders/Spinner";
 import "./Login.css"
-import { Cookies } from 'react-cookie'
 import { encryptData } from "../../../utils/EncryptDecrypt";
+import { ADMINLOGINAPI } from "../../Constants/ApiConstants";
+import { ADMINDASHBOARD } from "../../Constants/RoutesConstants";
 axios.defaults.withCredentials = true
 
 const AdminPage = () => {
     const navigate = useNavigate();
-    const cookies = new Cookies()
     const {register,handleSubmit, formState: {errors},setError, clearErrors, watch} = useForm()
 
   function useUser(data) {
     return useQuery('fetchUser', async () => {
-      return await axios.post("https://rightpathapi.herokuapp.com/api/v1/auth/login" , {...data},{
+      return await axios.post(ADMINLOGINAPI, {...data},{
             headers: {
                 "Content-Type": "application/json"
             }
@@ -27,9 +27,9 @@ const AdminPage = () => {
       onSuccess: res => {
         if(res?.data?.token) {
           if(res?.data?.user?.role === 'admin'){
-            cookies.set('token', res?.data?.token)
-            cookies.set('user', encryptData(res?.data?.user))
-            navigate('/rightpath/admin/homepage')
+            localStorage.setItem('token', res?.data?.token)
+            localStorage.setItem('user', encryptData(res?.data?.user))
+            navigate(ADMINDASHBOARD)
           }
         }
       },
