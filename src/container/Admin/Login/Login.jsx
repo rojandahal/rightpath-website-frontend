@@ -3,22 +3,22 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router";
-import { RULES } from "../../utils/RULES";
-import ErrorMessage from "../Helpers/ErrorMessage";
-import Spinner from "../Loaders/Spinner";
-import "./AdminPage.css"
-import { Cookies } from 'react-cookie'
-import { encryptData } from "../../utils/EncryptDecrypt";
+import { RULES } from "../../../utils/RULES";
+import ErrorMessage from "../../Helpers/ErrorMessage";
+import Spinner from "../../Loaders/Spinner";
+import "./Login.css"
+import { encryptData } from "../../../utils/EncryptDecrypt";
+import { ADMINLOGINAPI } from "../../Constants/ApiConstants";
+import { ADMINDASHBOARD } from "../../Constants/RoutesConstants";
 axios.defaults.withCredentials = true
 
 const AdminPage = () => {
     const navigate = useNavigate();
-    const cookies = new Cookies()
     const {register,handleSubmit, formState: {errors},setError, clearErrors, watch} = useForm()
 
   function useUser(data) {
     return useQuery('fetchUser', async () => {
-      return await axios.post("https://rightpathapi.herokuapp.com/api/v1/auth/login" , {...data},{
+      return await axios.post(ADMINLOGINAPI, {...data},{
             headers: {
                 "Content-Type": "application/json"
             }
@@ -27,9 +27,9 @@ const AdminPage = () => {
       onSuccess: res => {
         if(res?.data?.token) {
           if(res?.data?.user?.role === 'admin'){
-            cookies.set('token', res?.data?.token)
-            cookies.set('user', encryptData(res?.data?.user))
-            navigate('/rightpath/admin/homepage')
+            localStorage.setItem('token', res?.data?.token)
+            localStorage.setItem('user', encryptData(res?.data?.user))
+            navigate(ADMINDASHBOARD)
           }
         }
       },
@@ -51,7 +51,7 @@ const AdminPage = () => {
       <div className="Auth-form-container">
         <form className="Auth-form" onSubmit={handleSubmit(onSubmit)}>
           <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Sign In</h3>
+            <h3 className="Auth-form-title">Admin Login</h3>
             <div className="form-group mt-3">
               <label className={`${errors?.email && 'warrning'}`}>Email address *</label>
               <input
