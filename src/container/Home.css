@@ -1,0 +1,29 @@
+.home {
+    display: flex;
+    flex-direction: column;
+}
+.header-wrapper {
+    text-align: center;
+    padding: 0;
+    background: url(https://i.ibb.co/c3pDCq5/education-day-arrangement-table-with-copy-space.jpg);
+    background-attachment: scroll;
+    background-size: auto;
+    background-attachment: fixed;
+    background-size: cover;
+    margin-bottom: 10px;
+    height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+}
+.greetings {
+    position: relative; 
+    top: 300px;
+}
+.home .blank-line{
+    height: 500px;
+    background-color: #fff;
+}
+a {
+    text-decoration: none;
+}
