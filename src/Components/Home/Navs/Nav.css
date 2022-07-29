@@ -1,0 +1,116 @@
+.navBar{
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+    width: 100%;
+}
+.logo {
+}
+
+.logo img {
+    display: block;
+    width: 200px;
+    height: 56px;
+}
+.navigations {
+    width: auto;
+}
+
+.navigations li {
+    float: left;
+    line-height: 1;
+    padding: 16px 17px;
+    text-align: left;
+    display: block;
+    
+}
+
+.navigations a {
+    background-color: transparent;
+    font-size: 15px;
+    padding: 0 0 8px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1.3px;
+    color: #fff;
+}
+
+.navigations li:hover {
+    background-color: transparent;
+}
+.navigations a:hover {
+    color: #ffbd2f;
+}
+.navigations .active {
+    color: #ffbd2f;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
+.mobile-only{
+    display: none;
+}
+
+@media screen and (max-width: 1009px) {
+    .mobile-only{
+        display: flex;
+        width: auto;
+        flex-direction: row-reverse;
+    }
+    .navBar{
+        position: absolute;
+        padding: 10px 20px 10px 20px;
+        justify-content: space-between;
+    }
+    .navigations {
+        display: none;
+    }
+    .mobile-navigation-icon{
+    }
+    .hide{
+        display: none;
+    }
+    .mobile-navigations {
+        background-color: #fff;
+        position: relative;
+        top: 30px;
+        right: -30px;
+        border: black 1px solid;
+    }
+    .mobile-navigations ul {
+        padding: 20px;
+    }
+    .mobile-navigations li {
+        line-height: 1;
+        padding: 16px 17px;
+        text-align: left;
+        display: block;
+    }
+    .mobile-navigations a {
+        background-color: transparent;
+        color: black;
+        font-size: 15px;
+        padding: 0 0 8px;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bolder;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1.3px;
+    }
+    .mobile-navigations a:hover {
+        color: #ffbd2f;
+    }
+    .mobile-navigations li:hover {
+        background-color: transparent;
+    }
+  }
+
+  
+  @media screen and (max-width: 450px) {
+    .navBar{
+        flex-direction: column;
+    }
+  }
