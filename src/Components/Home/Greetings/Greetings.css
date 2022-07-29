@@ -1,0 +1,29 @@
+.greetings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.greetings h1 {
+    color: #fff;
+    margin: 0;
+    font-size: 55px;
+    line-height: 1.4em;
+    text-transform: Uppercase;
+    font-weight:bolder;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', cursive;
+}
+.greetings p{
+    font-size: 40px;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: white;
+}
+.greetings .social ul {
+    display: flex;
+}
+.greetings li:hover {
+    background-color: transparent;
+    color:#fff
+}
