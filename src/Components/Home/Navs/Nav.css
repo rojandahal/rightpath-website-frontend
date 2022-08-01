@@ -73,6 +73,7 @@
         display: none;
     }
     .mobile-navigations {
+        z-index: 1;
         background-color: #fff;
         position: relative;
         top: 30px;
