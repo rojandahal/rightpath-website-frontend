@@ -21,9 +21,17 @@
     top: 300px;
 }
 .home .blank-line{
-    height: 500px;
+    height: 30px;
     background-color: #fff;
 }
 a {
     text-decoration: none;
+}
+
+.middle-wrapper {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
