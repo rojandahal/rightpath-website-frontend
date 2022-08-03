@@ -10,8 +10,8 @@ const Portfolio = () => {
                     <span className="works-icons">
                     <span className="icon"><i aria-hidden="true" className="fa fa-edit"></i></span>
                     </span>
-                    <h6 className="works-heading">Counselling Service</h6>
-                    <p className="works-text">Itâ€™s a preliminary service offered by us</p>
+                    <h6 className="works-heading">1. Counselling Service</h6>
+                    <p className="works-text">It's a preliminary service offered by us</p>
                 </div>
                 <div className="item2">
                     <span className="works-icons">
