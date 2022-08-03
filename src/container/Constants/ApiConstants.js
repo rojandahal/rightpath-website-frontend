@@ -1,7 +1,7 @@
-const API = 'https://rightpathapi.herokuapp.com/api'
+const API = "https://rightpathapi.herokuapp.com/api";
 
-const VERSION = '/v1'
+const VERSION = "/v1";
 
-export const ADMINLOGINAPI = API + VERSION + '/auth/login'
+export const ADMINLOGINAPI = API + VERSION + "/auth/login";
 
-export const DOCUMENTFETCH = API + VERSION + '/document'
+export const DOCUMENTAPI = API + VERSION + "/document";
