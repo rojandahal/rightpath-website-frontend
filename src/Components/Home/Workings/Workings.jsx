@@ -35,7 +35,7 @@ const WorkingProcess = () => {
                     <span className="works-icons">
                     <span className="icon"><i aria-hidden="true" className="fa fa-handshake"></i></span>
                     </span>
-                    <h6 className="works-heading">1. Visa application assistance</h6>
+                    <h6 className="works-heading">4. Visa application assistance</h6>
                     <p className="works-text">Finally, we help our client to apply the visa </p>
                 </div>
             </div>
