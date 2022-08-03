@@ -5,6 +5,7 @@ import AdminLoginPage from './container/Admin/Login/Login'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import AdminHomePage from './container/Admin/Home/Home'
 import PrivateRoute from './utils/PrivateRoutes'
+import Form from './container/Form/Form'
 
 function Main() {
   return (
@@ -21,6 +22,7 @@ function Main() {
           }
         />
         <Route path='/rightpath/admin/login' element={<AdminLoginPage />} />
+        <Route exact path='/apply-form' element={<Form/>} />
       </Routes>
     </BrowserRouter>
   )
