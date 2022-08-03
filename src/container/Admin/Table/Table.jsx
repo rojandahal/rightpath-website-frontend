@@ -10,7 +10,7 @@ import { useQuery } from "react-query";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { DOCUMENTFETCH } from "../../Constants/ApiConstants";
+import { DOCUMENTAPI } from "../../Constants/ApiConstants";
 
 const Tables = () => {
   const {setError} = useForm();
@@ -20,7 +20,7 @@ const Tables = () => {
     return useQuery(
       "fetchData",
       async () => {
-        return await axios.get(DOCUMENTFETCH, {
+        return await axios.get(DOCUMENTAPI, {
           headers: {
             "Content-Type": "application/json",
           },
