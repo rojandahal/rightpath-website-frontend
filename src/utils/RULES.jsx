@@ -16,5 +16,16 @@ export const RULES = {
       value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
       message: 'Please Enter Valid Email'
     }
+  },
+  contactNumber: {
+    required: 'Contact number is required',
+    minLength: {
+      value: 10,
+      message: 'Contact no must be 10 digit'
+    },
+    maxLength: {
+      value: 10,
+      message: 'Number must only be 10 digit'
+    }
   }
 }
