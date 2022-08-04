@@ -5,6 +5,8 @@ import Greetings from '../Components/Home/Greetings/Greetings';
 import WorkingProcess from '../Components/Home/Workings/Workings';
 import Portfolio from '../Components/Home/Portfolio/Portfolio';
 import AboutUs from '../Components/Home/Aboutus/AboutUs';
+import GetInTouch from '../Components/Home/GetInTouch/GetInTouch';
+import Footer from '../Components/Home/Footer/Footer';
 
 const Home = () => {
     return (
@@ -18,6 +20,8 @@ const Home = () => {
             <WorkingProcess />
             <Portfolio />
             <AboutUs />
+            <GetInTouch />
+            <Footer />
           </div>
         </div>
     );
