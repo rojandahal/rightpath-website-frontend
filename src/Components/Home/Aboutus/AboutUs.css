@@ -15,3 +15,63 @@
     align-items: center;
     width: 80%;
 }
+
+.about-us .heading .testimonial {
+    background-color: #fff;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 0px 10px 4px rgba(0,0,0,0.08); 
+    box-shadow: 0px 10px 13px -7px #000000, 0px 0px 10px 4px rgba(0,0,0,0.08);
+    border-radius: 0.3rem;
+}
+
+.about-us .heading .testimonial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.about-us .heading .testimonial .left-side {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 0.5rem;
+}
+
+.about-us .heading .testimonial .left-side img {
+    height: 19rem;
+    width: 25rem;
+    border-radius: 0.3rem;
+
+}
+
+.about-us .heading .testimonial .right-side {
+    padding: 20px;
+}
+.about-us .heading .testimonial .right-side .description span{
+    margin: 0;
+}
+
+@media screen and (max-width: 938px) {
+    .about-us .heading .testimonial {
+        flex-direction: column;
+        height: auto;
+    }
+    .about-us .heading .testimonial .right-side .description, .about-us .heading .testimonial .right-side .title{
+        text-align: center;
+    }
+}
+
+
+@media screen and (min-width: 1690px) {
+    .about-us .heading .testimonial {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 560px) {
+    .about-us .heading .testimonial {
+        width: 100%;
+    }
+    .about-us .heading .testimonial .left-side img {
+        width: 100%;
+        height: fit-content;
+    }
+}
