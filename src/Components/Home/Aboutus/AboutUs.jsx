@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react'
-
+import Aos from "aos";
+import 'aos/dist/aos.css'
 import './AboutUs.css'
 
 const AboutUs = () => {
     const [testimonial, setTestimonial] = useState([{
         imgSrc:'//1.bp.blogspot.com/-P1UCUBWGCMU/WaUv1CxF6kI/AAAAAAAADvM/aOSCRX-UHAwKF8EFs20fqryoqDNa3DJQwCK4BGAYYCw/s1600/team_1.jpg',
-        title: 'Rojan Dahal sucess visa granted.',
+        title: 'Rojan Dahal AUSTRALIA visa granted.',
         description: 'Date & Details Visa Received: 21st Nov 2019 Difficulties in our life do not come to ruin us,but it helps us to bring our hidden abilities outside. Congratulations Mr Srijan KC for study visa granted to study in Australia.Best Wishes from #KIEC Course Details...',
     }, {
-        imgSrc:'https://www.kiecglobal.com.au/wp-content/uploads/2020/07/Srijan-KC.jpg',
+        imgSrc:'//1.bp.blogspot.com/-lS8BCMfild4/WaUv1I0ZzxI/AAAAAAAADvI/TRbkU8DD6qAMXTEciXxlZXakbMGB29xWQCK4BGAYYCw/s1600/team_2.jpg',
         title: 'Saman Shrestha sucess visa granted.',
         description: 'Date & Details Visa Received: 21st Nov 2019 Difficulties in our life do not come to ruin us,but it helps us to bring our hidden abilities outside. Congratulations Mr Srijan KC for study visa granted to study in Australia.Best Wishes from #KIEC Course Details...',
     }])
 
     const [selectedTestimonial, setSelectedTestimonial] = useState()
     useEffect(() => {
+        Aos.init({duration: 1000});
         let count = 0;
         setSelectedTestimonial(testimonial[0])
         count++;
@@ -44,7 +46,7 @@ const AboutUs = () => {
                     <h4>Testimonial</h4>
                     <p>Our process on creating awesome projects.</p>
                     {selectedTestimonial && (
-                        <div className="testimonial">
+                        <div className="testimonial" data-aos="zoom-in-up" data-aos-delay="30" data-aos-once="true">
                         <div className="left-side">
                             <img alt="" src={selectedTestimonial?.imgSrc} />
                         </div>

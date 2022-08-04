@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import Aos from "aos";
+import 'aos/dist/aos.css'
 import "./GetInTouch.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -91,6 +93,10 @@ const GetInTouch = () => {
     await refetch();
   };
 
+  useEffect(()=>{
+    Aos.init({duration: 1000});
+  },[])
+
   const courses = [
     {
       value: "IELTS",
@@ -108,7 +114,7 @@ const GetInTouch = () => {
                 <p>Feel free to drop us a line to contact us</p>
             </div>
             <div className="container">
-                <div className="contact">
+                <div className="contact" data-aos="fade-right" data-aos-delay="30" data-aos-once="true">
                     <div className="heading">
                         <h4>Feel Free To Contact</h4>
                         <p>Please Locate Us On:</p>
@@ -132,7 +138,7 @@ const GetInTouch = () => {
                         </div>
                     </div>
                 </div>
-                <div className="form-container">
+                <div className="form-container" data-aos="fade-left" data-aos-delay="30" data-aos-once="true">
                     <Box
                     component="form"
                     sx={{
