@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+
 .portfolio {
     margin: 30px;
     width: 100%;
@@ -57,9 +61,14 @@
     height: fit-content;
     text-align: center;
     font-size: 24px;
+    font-family: 'Playfair Display', serif;
     color: #121158;
     font-weight: 700;
     margin: 0 0 7px;
+}
+
+.works-text {
+    font-family: 'Montserrat', sans-serif;
 }
 .portfolio p{
     text-align: center;

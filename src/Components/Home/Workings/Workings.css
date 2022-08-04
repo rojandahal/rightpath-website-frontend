@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .working-process {
     margin: 0;
     width: 100%;
@@ -41,17 +44,22 @@
 .working-process div {
     display: flex;
     flex-direction: column;
+    font-family: 'Playfair Display', serif;
     justify-content: space-around;
     align-items: center;
     margin: 10px;
     padding: 10px;
 }
+.working-process p{
+    font-family: 'Montserrat', sans-serif;
+
+}
 .working-process .processes {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    width: 75%;
+    width: 90%;
 }
 
 
@@ -71,6 +79,7 @@ span i {
     color: #202020;
     text-transform: capitalize;
     letter-spacing: 1.5px;
+    font-family: 'Playfair Display', serif;
     text-align: center;
     margin-bottom: 10px;
     font-weight: bold;
@@ -78,6 +87,8 @@ span i {
 
 .processes .works-text {
     margin: 0 0 20px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
     color: #707070;
     text-align: center;
   }
