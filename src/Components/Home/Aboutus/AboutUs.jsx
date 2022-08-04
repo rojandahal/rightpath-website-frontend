@@ -42,7 +42,7 @@ const AboutUs = () => {
                             We do an official collaboration with the universities and colleges across the globe and send our deserving students to their institution to pursue their further studies..
                      </p>    
             </div>   
-            <div className="heading">
+            <div className="heading testimonial-view">
                     <h4>Testimonial</h4>
                     <p>Our process on creating awesome projects.</p>
                     {selectedTestimonial && (
