@@ -45,8 +45,7 @@ const WorkingProcess = () => {
           </span>
           <h6 className="works-heading">3. Visa documentation</h6>
           <p className="works-text">
-            We go through the documents are present them as required by the high
-            commission.{" "}
+          We go through the documents are present them as required by the high commission and embassy{" "}
           </p>
         </div>
         <div data-aos="fade-up" data-aos-delay="50" data-aos-once="true">

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 .about-us {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -17,7 +20,19 @@
     align-items: center;
     width: 80%;
 }
+.about-us p{
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+.about-us h4{
+    font-family: 'Playfair Display', serif;
+}
 
+.description {
+    font-family: 'Montserrat', sans-serif;
+}
 .about-us .heading .testimonial {
     background-color: #fff;
     -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 0px 10px 4px rgba(0,0,0,0.08); 
@@ -50,6 +65,34 @@
 }
 .about-us .heading .testimonial .right-side .description span{
     margin: 0;
+}
+
+.appointment {
+    background-color: rgb(69, 69, 70);
+    padding: 20px;
+    margin: 5px;
+    margin-bottom: 20px;
+    width: 70%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+}
+
+.appoint-button {
+    width: 70%;
+    text-align: center;
+}
+.appointment h3{
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    color: white;
+}
+
+.appointment p{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
 }
 
 @media screen and (max-width: 938px) {
