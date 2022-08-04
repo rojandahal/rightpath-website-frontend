@@ -4,6 +4,7 @@ import NavBar from '../Components/Home/Navs/Nav';
 import Greetings from '../Components/Home/Greetings/Greetings';
 import WorkingProcess from '../Components/Home/Workings/Workings';
 import Portfolio from '../Components/Home/Portfolio/Portfolio';
+import AboutUs from '../Components/Home/Aboutus/AboutUs';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
           <div className="middle-wrapper">
             <WorkingProcess />
             <Portfolio />
+            <AboutUs />
           </div>
         </div>
     );
