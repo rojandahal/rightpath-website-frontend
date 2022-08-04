@@ -16,8 +16,8 @@
     width: 80%;
 }
 .portfolio .container div {
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 0px 10px 4px rgba(0,0,0,0.08); 
-    box-shadow: 0px 10px 13px -7px #000000, 0px 0px 10px 4px rgba(0,0,0,0.08);
+        -webkit-box-shadow: 0px 10px 13px -7px #cac5c5, 0px 0px 10px 4px rgba(0,0,0,0.08); 
+        box-shadow: 0px 10px 13px -7px #b3b1b1, 0px 0px 10px 4px rgba(0,0,0,0.08);
     padding: 10px;
     margin: 10px;
     display: flex;
@@ -28,17 +28,17 @@
 
 .portfolio .container .item1 {
     flex: 3;
-    height: 25rem;
+    height: 23rem;
 }
 
 .portfolio .container .item2 {
     flex: 3;
-    height: 25rem;
+    height: 23rem;
 
 }
 .portfolio .container .item3 {
     flex: 3;
-    height: 25rem;
+    height: 23rem;
 }
 .portfolio .works-icons{
     height: 90px;
@@ -84,6 +84,35 @@
 }
 
 @media screen and (max-width: 1373px) {
+    .portfolio .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    /* .portfolio .container div {
+        width: 100vw;
+        
+    } */
+    .portfolio .container {
+        width: 100%;
+    }
+    .portfolio .container .item1 {
+        flex: 1;
+        width: 0%;
+    }
+    
+    .portfolio .container .item2 {
+        width: 80%;
+        flex:1;
+    
+    }
+    .portfolio .container .item3 {
+        flex: 1;
+        width: 80%;
+    }
+  }
+
+  @media screen and (max-width: 1009px) {
     .portfolio .container {
         display: flex;
         flex-direction: column;
