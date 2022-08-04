@@ -1,0 +1,121 @@
+.getintouch {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.getintouch .title {
+    text-align: center;
+}
+
+.getintouch .title h4 {
+    margin-bottom: 0;
+}
+
+.getintouch .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.getintouch .container .contact {
+    margin: 10px;
+    padding: 10px;
+    width: 40%;
+    height: auto;
+}
+
+.getintouch .container .contact .main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.getintouch .container .contact .main .fa {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    padding: 4px;
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align: center;
+}
+.getintouch .container .contact .main div {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+}
+.getintouch a {
+    color: #888;
+}
+.getintouch .container .form-container {
+    width: 60%;
+}
+
+.getintouch .container .form-container .box{
+    width: 100%;
+}
+.getintouch .container .form-container .box .input-fields {
+    background-color: black;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: baseline;
+    justify-content: baseline;
+    padding-left: 60px;
+    height: 20rem;
+    overflow: scroll;
+    width: 100%;
+}
+
+.getintouch .container .form-container .box .input-fields .heading{
+    margin-top: 30px;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    width: 100%;
+}
+
+.getintouch .container .form-container .box .input-fields div{
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    color: #fff;
+    width: 80%;
+    padding-bottom: 20px;
+}
+.getintouch .container .form-container .box .input-fields div label{
+    color: #fff;
+}
+
+.getintouch .container .form-container .box .input-fields div input{
+    color: #fff;
+    border-bottom: 1.5px #fff solid;
+    width: 100%;
+}
+.getintouch .container .form-container .box .input-fields div .select--wrapper{
+    width: 100%;
+}
+
+.getintouch .container .form-container .box .input-fields div .select--wrapper .input{
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1.5px #fff solid;
+    width: 100%;
+}
+
+.getintouch .container .form-container .box .input-fields div .select--wrapper .input::placeholder{
+    color: #fff;
+    background-color: black;
+}
+
+.getintouch .container .form-container .box .input-fields .submitButton{
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    align-items: center;
+    background-color: gray;
+}

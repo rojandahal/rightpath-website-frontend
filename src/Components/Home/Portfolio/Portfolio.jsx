@@ -30,7 +30,7 @@ const Portfolio = () => {
             </div>
             <div className="our-portfolio">
                 <h4>Our Portfolio.</h4>
-                <span>A creative agency that believes in the power of creative ideas and great design.</span>
+                <p>A creative agency that believes in the power of creative ideas and great design.</p>
             </div>
         </div>
     )

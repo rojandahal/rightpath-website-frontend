@@ -35,3 +35,10 @@ a {
     align-items: center;
     flex-direction: column;
 }
+p {
+    color: #2e2e2e;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 21px;
+}

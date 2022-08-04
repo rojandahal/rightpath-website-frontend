@@ -1,0 +1,32 @@
+.footer {
+    background-color: #222;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 5rem;
+}
+
+.footer .main span{
+    color: #fff;
+}
+.footer .main{
+    flex: 3;
+    text-align: center;
+}
+.footer .social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer .social ul {
+    margin: 0;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer .social ul li {
+    color: #fff;
+}

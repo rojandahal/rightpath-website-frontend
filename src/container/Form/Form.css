@@ -24,7 +24,7 @@
 .fields {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: baseline;
     align-items: center;
     position: relative;
     flex-direction: column;
