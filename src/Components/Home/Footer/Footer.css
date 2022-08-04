@@ -30,3 +30,14 @@
 .footer .social ul li {
     color: #fff;
 }
+.footer .social .icon {
+    color: white;
+}
+
+@media screen and (max-width: 524px) {
+    .footer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}

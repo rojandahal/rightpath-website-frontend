@@ -13,13 +13,23 @@ const Footer = () => {
             <div className="main"><span>©All Rights Reserved by Right Path  | Distributed by Github
                 </span></div>
                 <div className="social">
-                <ul>
-                    <li><FacebookOutlinedIcon/></li>
-                    <li><TwitterIcon /></li>
-                    <li><InstagramIcon /></li>
-                    <li><PinterestIcon /></li>
-                    <li><LinkedInIcon /></li>
-                </ul>
+                    <ul>
+                        <li>
+                            <a href='hi'><FacebookOutlinedIcon className="icon"/></a>
+                        </li>
+                        <li>
+                            <a href='hi'><TwitterIcon className="icon"/></a>
+                        </li>
+                        <li>
+                            <a href='hi'><InstagramIcon className="icon"/></a>
+                        </li>
+                        <li>
+                            <a href='hi'><PinterestIcon className="icon"/></a>
+                        </li>
+                        <li>
+                            <a href='hi'><LinkedInIcon className="icon"/></a>
+                        </li>
+                    </ul>
             </div>
         </div>
     )

@@ -12,7 +12,7 @@ const Greetings = () => {
   return (
     <div className="greetings">
       <h1>Welcome </h1>
-      <p>
+      <span>
         <Typewriter
           options={{
             autoStart: true,
@@ -25,23 +25,23 @@ const Greetings = () => {
             ],
           }}
         />
-      </p>
+        </span>
       <div className="social">
         <ul>
           <li>
-            <FacebookOutlinedIcon />
+            <a href='hi'><FacebookOutlinedIcon className="icon"/></a>
           </li>
           <li>
-            <TwitterIcon />
+          <a href='hi'><TwitterIcon className="icon"/></a>
           </li>
           <li>
-            <InstagramIcon />
+          <a href='hi'><InstagramIcon className="icon"/></a>
           </li>
           <li>
-            <PinterestIcon />
+          <a href='hi'><PinterestIcon className="icon"/></a>
           </li>
           <li>
-            <LinkedInIcon />
+          <a href='hi'><LinkedInIcon className="icon"/></a>
           </li>
         </ul>
       </div>

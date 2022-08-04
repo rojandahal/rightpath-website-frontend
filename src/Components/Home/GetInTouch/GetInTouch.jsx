@@ -3,19 +3,14 @@ import Aos from "aos";
 import 'aos/dist/aos.css'
 import "./GetInTouch.css";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import SendIcon from "@mui/icons-material/Send";
 import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
 import { FormProvider, useForm } from "react-hook-form";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { DOCUMENTAPI } from '../../../container/Constants/ApiConstants';
 import Spinner from '../../../container/Loaders/Spinner';
-import { RULES } from '../../../utils/RULES';
 import { HOMEPAGE } from '../../../container/Constants/RoutesConstants';
-import Input from './InputField';
 import InputField from './InputField';
 import { SelectInput } from './SelectInput';
 
@@ -27,11 +22,10 @@ const GetInTouch = () => {
     handleSubmit,
     formState: { errors },
     setError,
-    clearErrors,
     watch,
   } = methods;
 
-  const [fields, setFields] = useState([
+  const [fields, _] = useState([
     {label: 'Name', id: 'name',},
     {label: 'Age', id: 'age'},
     {label: 'Contact Number', id: 'contactNumber', rule: true},
@@ -43,7 +37,6 @@ const GetInTouch = () => {
 ])
 
   function useDocument(data) {
-    console.log(data);
     return useQuery(
       "submitData",
       async () => {
@@ -89,7 +82,6 @@ const GetInTouch = () => {
   });
 
   const onSubmit = async (data) => {
-    console.log(data)
     await refetch();
   };
 
@@ -121,19 +113,19 @@ const GetInTouch = () => {
                     </div>
                     <div className="main">
                         <div className="location">
-                            <i class="fa fa-home"></i>
+                            <i className="fa fa-home"></i>
                             <span className="info">Dillibazar-30, Kathmandu, Nepal.</span>
                         </div>
                         <div className="phone">
-                            <i class="fa fa-phone"></i>
+                            <i className="fa fa-phone"></i>
                                 <span className="info"><a href="tel: +977-1-4423354">+977-1-4423354</a></span>
                         </div>
                         <div className="email">
-                            <i class="fa fa-envelope"></i>
+                            <i className="fa fa-envelope"></i>
                             <span className="info"><a href="mailto: rightpatheducation@gmail.com">rightpatheducation@gmail.com</a></span>
                         </div>
                         <div className="website">
-                            <i class="fa fa-globe"></i>
+                            <i className="fa fa-globe"></i>
                             <span className="info"><a href="https://www.rightpath.edu.np/" target="_blank" rel="noopener noreferrer">www.rightpath.edu.np</a></span>
                         </div>
                     </div>
@@ -155,7 +147,7 @@ const GetInTouch = () => {
                         </h1>
                         <FormProvider {...methods}>
                         {fields.map(field => {
-                            return <InputField label={field?.label} errors={errors[`${field?.id}`]} className={field?.id} id={field?.id} />
+                            return <InputField label={field?.label} errors={errors[`${field?.id}`]} className={field?.id} id={field?.id} key={field?.id} />
                         })}
                         </FormProvider>
                         <SelectInput
