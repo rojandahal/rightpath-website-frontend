@@ -20,7 +20,7 @@ const AdminPageHome = () => {
             <div className="homeContainer">
                 <NavBar />
                 <div className="listContainer">
-                    <div className="listTitle">Latest Transactions</div>
+                    <div className="listTitle">Latest Student Requests</div>
                     <Tables />
                 </div>
             </div>

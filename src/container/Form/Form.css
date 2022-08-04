@@ -1,0 +1,53 @@
+.navform {
+    text-align: center;
+    padding: 0;
+    background-attachment: scroll;
+    background-size: auto;
+    background-attachment: fixed;
+    background-size: cover;
+    margin-bottom: 10px;
+    height: 12vh;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #657A67;
+}
+
+.form-container {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5%;
+}
+.fields {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+
+}
+
+.form-container .fields {
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 0px 10px 4px rgba(0,0,0,0.08); 
+    box-shadow: 0px 10px 13px -7px #000000, 0px 0px 10px 4px rgba(0,0,0,0.08);
+    padding: 5vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F7FA;
+}
+
+.enter {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color: red;
+    text-align: center;
+}
+
+.send-button {
+    padding: 5px;
+    margin-left: 2vh;
+}
