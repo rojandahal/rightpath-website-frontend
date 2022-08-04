@@ -19,9 +19,9 @@ const Greetings = () => {
             loop: true,
             delay: "natural",
             strings: [
-              "Hello from RightPath.",
-              "We are Educational Consultant",
-              "We offer complete consultant service.",
+              "We are Educational Consultant.",
+              "We offer complete consultation service.",
+              "We assist you with visa documentation.",
             ],
           }}
         />

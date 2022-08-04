@@ -21,20 +21,20 @@ const Portfolio = () => {
                     <span className="works-icons">
                     <span className="icon"><i aria-hidden="true" className="fa fa-clipboard"></i></span>
                     </span>
-                    <h6 className="works-heading">Assessing the documents</h6>
-                    <p className="works-text">We analyse the documents and provide the best solution  </p>
+                    <h6 className="works-heading">Visa Documentation</h6>
+                    <p className="works-text">We provide the facility of visa documentation and entire procedure in course of applying  </p>
                 </div>
                 <div className="item3">
                     <span className="works-icons">
                     <span className="icon"><i aria-hidden="true" className="fa fa-book"></i></span>
                     </span>
-                    <h6 className="works-heading">Visa documentation</h6>
-                    <p className="works-text">We go through the documents are present them as required by the high commission. </p>
+                    <h6 className="works-heading">Visa Application</h6>
+                    <p className="works-text">We sort, gather and process the information of client, and apply the needed visa.  </p>
                 </div>
             </div>
             <div className="our-portfolio">
                 <h4>Our Portfolio.</h4>
-                <p>A creative agency that believes in the power of creative ideas and great design.</p>
+                <p>An institution providing quality service.</p>
             </div>
         </div>
     )

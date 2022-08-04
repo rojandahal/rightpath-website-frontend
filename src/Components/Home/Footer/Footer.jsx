@@ -10,7 +10,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 const Footer = () => {
     return(
         <div className="footer">
-            <div className="main"><span>Created By RightPath | Distributed By GitHub
+            <div className="main"><span>©All Rights Reserved by Right Path  | Distributed by Github
                 </span></div>
                 <div className="social">
                 <ul>
