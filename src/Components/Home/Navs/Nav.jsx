@@ -17,12 +17,12 @@ const NavBar = () => {
             <div className="navigations">
                 <ul>
                     <li><Link className="active" to='/'>Home</Link></li>
-                    <li><Link to='services'>Services</Link></li>
-                    <li><Link to='works'>Works</Link></li>
-                    <li><Link to='News'>News</Link></li>
-                    <li><Link to='TestimoniLinkl'>Testimonil</Link></li>
-                    <li><Link to='Linkbout'>About</Link></li>
-                    <li><Link to='ContLinkct'>Contact</Link></li>
+                    <li><Link to='#'>Services</Link></li>
+                    <li><Link to='#'>Works</Link></li>
+                    <li><Link to='#'>News</Link></li>
+                    <li><Link to='#'>Testimonil</Link></li>
+                    <li><Link to='#'>About</Link></li>
+                    <li><Link to='apply-form'>Contact</Link></li>
                 </ul>
             </div>
             <div className="mobile-only">
@@ -32,12 +32,12 @@ const NavBar = () => {
                 <div className={`mobile-navigations ${!showMobileNavs && 'hide'}`}>
                     <ul>
                         <li><Link to='/'>Home</Link></li>
-                        <li><Link to='services'>Services</Link></li>
-                        <li><Link to='works'>Works</Link></li>
-                        <li><Link to='News'>News</Link></li>
-                        <li><Link to='TestimoniLinkl'>Testimonil</Link></li>
-                        <li><Link to='Linkbout'>About</Link></li>
-                        <li><Link to='ContLinkct'>Contact</Link></li>
+                        <li><Link to='#'>Services</Link></li>
+                        <li><Link to='#'>Works</Link></li>
+                        <li><Link to='#'>News</Link></li>
+                        <li><Link to='#'>Testimonil</Link></li>
+                        <li><Link to='#'>About</Link></li>
+                        <li><Link to='apply-form'>Contact</Link></li>
                     </ul>
                 </div>
             </div>
