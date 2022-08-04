@@ -54,7 +54,8 @@
     height: 5.5rem;
 }
 .portfolio .works-heading {
-    height: 30px;
+    height: fit-content;
+    text-align: center;
     font-size: 24px;
     color: #121158;
     font-weight: 700;
@@ -81,3 +82,27 @@
 .portfolio .our-portfolio span {
     color: #606060;
 }
+
+@media screen and (max-width: 1373px) {
+    .portfolio .container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    /* .portfolio .container div {
+        width: 100vw;
+        
+    } */
+
+    .portfolio .container .item1 {
+        width: 80%;
+    }
+    
+    .portfolio .container .item2 {
+        width: 80%;
+    
+    }
+    .portfolio .container .item3 {
+        width: 80%;
+    }
+  }
