@@ -70,8 +70,8 @@
 .appointment {
     background-color: rgb(69, 69, 70);
     padding: 20px;
-    margin: 5px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     width: 70%;
     align-items: center;
     display: flex;

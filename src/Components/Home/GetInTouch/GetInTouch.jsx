@@ -1,173 +1,163 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import Aos from "aos";
-import 'aos/dist/aos.css'
+import "aos/dist/aos.css";
 import "./GetInTouch.css";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import { FormProvider, useForm } from "react-hook-form";
-import { useQuery } from "react-query";
+import TextField from "@mui/material/TextField";
+import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router";
-import axios from "axios";
-import { DOCUMENTAPI } from '../../../container/Constants/ApiConstants';
-import Spinner from '../../../container/Loaders/Spinner';
-import { HOMEPAGE } from '../../../container/Constants/RoutesConstants';
-import InputField from './InputField';
-import { SelectInput } from './SelectInput';
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+import { HOMEPAGE } from "../../../container/Constants/RoutesConstants";
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const GetInTouch = () => {
-    const navigate = useNavigate();
-  const methods = useForm();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    setError,
-    watch,
-  } = methods;
+  const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
 
-  const [fields, _] = useState([
-    {label: 'Name', id: 'name',},
-    {label: 'Age', id: 'age'},
-    {label: 'Contact Number', id: 'contactNumber', rule: true},
-    {label: 'Email', id: 'email', rule: true},
-    {label: 'Address', id: 'address'},
-    {label: 'Passport Number', id: 'passportNo'},
-    {label: 'Level of Study', id: 'los'},
-    {label: 'Desired Country', id: 'desiredCountry'},
-])
-
-  function useDocument(data) {
-    return useQuery(
-      "submitData",
-      async () => {
-        return await axios.post(
-          DOCUMENTAPI,
-          { ...data },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-      },
-      {
-        enabled: false,
-        onSuccess: () => {
-          navigate(HOMEPAGE);
-        },
-        onError: (err) => {
-          if (err.response?.data) {
-            setError("SubmitError", {
-              type: "custom",
-              message: err.response?.data?.error,
-            });
-          }
-        },
-        retry: 0,
-      }
-    );
-  }
-
-  const { refetch, isLoading } = useDocument({
-    name: watch("name"),
-    age: watch("age"),
-    address: watch("address"),
-    contactNumber: watch("contactNumber"),
-    email: watch("email"),
-    passportNo: watch("passportNo"),
-    levelStuy: watch("levelStudy"),
-    desiredCountry: watch("desiredCountry"),
-    desiredCourse: watch("desiredCourse"),
-    courseReq: watch("courseReq"),
-  });
-
-  const onSubmit = async (data) => {
-    await refetch();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_mxxtlsy",
+        "template_mwpn5nu",
+        e.target,
+        "XcE33movnIgLLbu4q"
+      )
+      .then((res) => {
+        setOpen(true)
+      })
+      .cathc((err) => {
+        console.log(err);
+      });
   };
 
-  useEffect(()=>{
-    Aos.init({duration: 1000});
-  },[])
-
-  const courses = [
-    {
-      value: "IELTS",
-      label: "IELTS",
-    },
-    {
-      value: "PTE",
-      label: "PTE",
-    },
-  ];
-    return (
-        <div className="getintouch">
-            <div className="title">
-                <h4>Get In Touch</h4>
-                <p>Feel free to drop us a line to contact us</p>
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      navigate(HOMEPAGE);
+    }
+    setOpen(false);
+    navigate(HOMEPAGE);
+  };
+  return (
+    <div className="getintouch">
+      <div className="title">
+        <h4>Get In Touch</h4>
+        <p>Feel free to drop us a line to contact us</p>
+      </div>
+      <div className="container">
+        <div
+          className="contact"
+          data-aos="fade-right"
+          data-aos-delay="30"
+          data-aos-once="true"
+        >
+          <div className="heading">
+            <h4>Feel Free To Contact</h4>
+            <p>Please Locate Us On:</p>
+          </div>
+          <div className="main">
+            <div className="location">
+              <i className="fa fa-home"></i>
+              <span className="info">Dillibazar-30, Kathmandu, Nepal.</span>
             </div>
-            <div className="container">
-                <div className="contact" data-aos="fade-right" data-aos-delay="30" data-aos-once="true">
-                    <div className="heading">
-                        <h4>Feel Free To Contact</h4>
-                        <p>Please Locate Us On:</p>
-                    </div>
-                    <div className="main">
-                        <div className="location">
-                            <i className="fa fa-home"></i>
-                            <span className="info">Dillibazar-30, Kathmandu, Nepal.</span>
-                        </div>
-                        <div className="phone">
-                            <i className="fa fa-phone"></i>
-                                <span className="info"><a href="tel: +977-1-4423354">+977-1-4423354</a></span>
-                        </div>
-                        <div className="email">
-                            <i className="fa fa-envelope"></i>
-                            <span className="info"><a href="mailto: rightpatheducation@gmail.com">rightpatheducation@gmail.com</a></span>
-                        </div>
-                        <div className="website">
-                            <i className="fa fa-globe"></i>
-                            <span className="info"><a href="https://www.rightpath.edu.np/" target="_blank" rel="noopener noreferrer">www.rightpath.edu.np</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div className="form-container" data-aos="fade-left" data-aos-delay="30" data-aos-once="true">
-                    <Box
-                    component="form"
-                    sx={{
-                        "& .MuiTextField-root": { m: 3, width: "70%" },
-                    }}
-                    noValidate
-                    className='box'
-                    autoComplete="off"
-                    onSubmit={handleSubmit(onSubmit)}
-                    >
-                    <div className="input-fields">
-                        <h1 className="heading">
-                            Book An Appointment
-                        </h1>
-                        <FormProvider {...methods}>
-                        {fields.map(field => {
-                            return <InputField label={field?.label} errors={errors[`${field?.id}`]} className={field?.id} id={field?.id} key={field?.id} />
-                        })}
-                        </FormProvider>
-                        <SelectInput
-                            placeholder="IELTS/PTE"
-                            defaultValue={'Select Course'}
-                            name="IELTS/PTE"
-                            label="Course"
-                            defaultOption="IELTS/PTE"
-                            {...register('courseReq', {required: true})}
-                            options={courses}
-                        />
-                        <Button type="submit" className="submitButton" variant="contained">
-                            {isLoading ? <Spinner /> : "Send"}
-                        </Button>
-                    </div>
-                    </Box>
-                </div>
+            <div className="phone">
+              <i className="fa fa-phone"></i>
+              <span className="info">
+                <a href="tel: +977-1-4423354">+977-1-4423354</a>
+              </span>
             </div>
+            <div className="email">
+              <i className="fa fa-envelope"></i>
+              <span className="info">
+                <a href="mailto: rightpatheducation@gmail.com">
+                  rightpatheducation@gmail.com
+                </a>
+              </span>
+            </div>
+            <div className="website">
+              <i className="fa fa-globe"></i>
+              <span className="info">
+                <a
+                  href="https://www.rightpath.edu.np/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  www.rightpath.edu.np
+                </a>
+              </span>
+            </div>
+          </div>
         </div>
-    )
-}
+        <div
+          className="form-container"
+          data-aos="fade-left"
+          data-aos-delay="30"
+          data-aos-once="true"
+        >
+          <Box
+            component="form"
+            sx={{
+              "& .MuiTextField-root": { m: 3, width: "70%" },
+            }}
+            noValidate
+            className="box"
+            autoComplete="off"
+            onSubmit={sendEmail}
+          >
+            <div className="input-fields">
+              <TextField
+                required
+                id="standard-basic"
+                label="Name"
+                name="name"
+                variant="standard"
+              />
+              <TextField
+                required
+                id="standard-basic"
+                label="Email"
+                name="email"
+                variant="standard"
+              />
+              <TextField
+                required
+                id="filled-multiline-static"
+                label="Message"
+                name="message"
+                multiline
+                rows={4}
+                variant="filled"
+              />
+              <Button
+                type="submit"
+                className="submitButton"
+                variant="contained"
+              >
+                Send
+              </Button>
+            </div>
+          </Box>
+          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Alert
+              onClose={handleClose}
+              severity="success"
+              sx={{ width: "100%" }}
+            >
+              Form Submitted Successfully!
+            </Alert>
+          </Snackbar>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default GetInTouch;
