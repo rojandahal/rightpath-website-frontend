@@ -15,7 +15,7 @@ const AdminPageHome = () => {
           navigate(ADMINLOGIN);
   };
   return (
-    <div className="home">
+    <div className="adminhome">
             <SideBar logoutButtonHandler={logoutButtonHandler}/>
             <div className="homeContainer">
                 <NavBar />
