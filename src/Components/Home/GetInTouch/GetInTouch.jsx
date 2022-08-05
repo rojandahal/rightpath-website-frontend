@@ -26,13 +26,13 @@ const GetInTouch = () => {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_mxxtlsy",
-        "template_mwpn5nu",
+        "service_odbjj25",
+        "template_25736vk",
         e.target,
-        "XcE33movnIgLLbu4q"
+        "Pr1FZ4sKIQQRcubY1"
       )
       .then((res) => {
-        setOpen(true)
+        setOpen(true);
       })
       .cathc((err) => {
         console.log(err);
