@@ -28,8 +28,8 @@ const NavBar = ({scrollPosition}) => {
                     <li><Link to='#' className={`${scrollPosition >= 600 && scrollPosition < 1035 && 'active'}`} onClick={() => scrollToSection('working-process')}>Services</Link></li>
                     <li><Link to='#' className={`${scrollPosition >= 1035 && scrollPosition < 1660 && 'active'}`} onClick={() => scrollToSection('portfolio')}>Works</Link></li>
                     <li><Link to='#' className={`${scrollPosition >= 1660 && scrollPosition < 2130 && 'active'}`} onClick={() => scrollToSection('about-us')}>About</Link></li>
-                    <li><Link to='#' className={`${scrollPosition >= 2130 && scrollPosition < 2600 && 'active'}`}  onClick={() => scrollToSection('testimonial-view')}>Testimonial</Link></li>
-                    <li><Link to='/apply-form' className={`${scrollPosition > 2600 && 'active'}`}>Contact</Link></li>
+                    <li><Link to='#' className={`${scrollPosition >= 2130 && scrollPosition < 2600 && 'active'}`}  onClick={() => scrollToSection('testimonial')}>Testimonial</Link></li>
+                    <li><Link to='apply-form' className={`${scrollPosition > 2600 && 'active'}`}>Contact</Link></li>
                 </ul>
             </div>
             <div className="mobile-only">
@@ -42,7 +42,7 @@ const NavBar = ({scrollPosition}) => {
                     <li><Link to='#' className={`${scrollPosition >= 600 && scrollPosition < 1035 && 'active'}`} onClick={() => scrollToSection('working-process')}>Services</Link></li>
                     <li><Link to='#' className={`${scrollPosition >= 1035 && scrollPosition < 1660 && 'active'}`} onClick={() => scrollToSection('portfolio')}>Works</Link></li>
                     <li><Link to='#' className={`${scrollPosition >= 1660 && scrollPosition < 2130 && 'active'}`} onClick={() => scrollToSection('about-us')}>About</Link></li>
-                    <li><Link to='#' className={`${scrollPosition >= 2130 && scrollPosition < 2600 && 'active'}`}  onClick={() => scrollToSection('testimonial-view')}>Testimonial</Link></li>
+                    <li><Link to='#' className={`${scrollPosition >= 2130 && scrollPosition < 2600 && 'active'}`}  onClick={() => scrollToSection('testimonial')}>Testimonial</Link></li>
                     <li><Link to='apply-form' className={`${scrollPosition > 2600 && 'active'}`}>Contact</Link></li>
                 </ul>
                 </div>
