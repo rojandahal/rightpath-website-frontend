@@ -16,7 +16,7 @@ const Home = () => {
   };
   useEffect(() => {
     if (
-      window.performance.navigation.type ==
+      window.performance.navigation.type ===
       window.performance.navigation.TYPE_RELOAD
     ) {
       window.scrollTo(0, 0);

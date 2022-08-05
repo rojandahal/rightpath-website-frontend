@@ -84,6 +84,14 @@ const GetInTouch = () => {
                 </a>
               </span>
             </div>
+            <div className="email">
+              <i className="fa fa-envelope"></i>
+              <span className="info">
+                <a href="mailto: info@rightpath.edu.np">
+                  info@rightpath.edu.np
+                </a>
+              </span>
+            </div>
             <div className="website">
               <i className="fa fa-globe"></i>
               <span className="info">

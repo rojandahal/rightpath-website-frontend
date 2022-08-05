@@ -15,19 +15,19 @@ const Footer = () => {
                 <div className="social">
                     <ul>
                         <li>
-                            <a href='hi'><FacebookOutlinedIcon className="icon"/></a>
+                            <a href='#'><FacebookOutlinedIcon className="icon"/></a>
                         </li>
                         <li>
-                            <a href='hi'><TwitterIcon className="icon"/></a>
+                            <a href='#'><TwitterIcon className="icon"/></a>
                         </li>
                         <li>
-                            <a href='hi'><InstagramIcon className="icon"/></a>
+                            <a href='#'><InstagramIcon className="icon"/></a>
                         </li>
                         <li>
-                            <a href='hi'><PinterestIcon className="icon"/></a>
+                            <a href='#'><PinterestIcon className="icon"/></a>
                         </li>
                         <li>
-                            <a href='hi'><LinkedInIcon className="icon"/></a>
+                            <a href='#'><LinkedInIcon className="icon"/></a>
                         </li>
                     </ul>
             </div>
