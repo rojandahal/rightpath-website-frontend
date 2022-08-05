@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../../Components/Home/Navs/Nav";
 import "./Form.css";
 import Box from "@mui/material/Box";
@@ -26,6 +26,10 @@ const Form = () => {
     clearErrors,
     watch,
   } = useForm();
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   function useDocument(data) {
     console.log(data);
@@ -219,3 +223,4 @@ const Form = () => {
 };
 
 export default Form;
+
