@@ -10,6 +10,7 @@ import { useNavigate } from "react-router";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { HOMEPAGE } from "../../../container/Constants/RoutesConstants";
+import Spinner from "../../../container/Loaders/Spinner";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -18,6 +19,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 const GetInTouch = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
@@ -41,10 +43,10 @@ const GetInTouch = () => {
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
-      navigate(HOMEPAGE);
+      window.location.reload(false);
     }
     setOpen(false);
-    navigate(HOMEPAGE);
+    window.location.reload(false);
   };
   return (
     <div className="getintouch">
@@ -145,7 +147,7 @@ const GetInTouch = () => {
               </Button>
             </div>
           </Box>
-          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
             <Alert
               onClose={handleClose}
               severity="success"

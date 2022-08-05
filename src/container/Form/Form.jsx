@@ -11,13 +11,20 @@ import { useQuery } from "react-query";
 import { useNavigate } from "react-router";
 import { RULES } from "../../utils/RULES";
 import ErrorMessage from "../Helpers/ErrorMessage";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import Spinner from "../Loaders/Spinner";
 import { DOCUMENTAPI } from "../Constants/ApiConstants";
 import { HOMEPAGE } from "../Constants/RoutesConstants";
 import axios from "axios";
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 const Form = () => {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
   const {
     register,
     handleSubmit,
@@ -28,8 +35,8 @@ const Form = () => {
   } = useForm();
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   function useDocument(data) {
     console.log(data);
@@ -49,7 +56,7 @@ const Form = () => {
       {
         enabled: false,
         onSuccess: () => {
-          navigate(HOMEPAGE);
+          setOpen(true);
         },
         onError: (err) => {
           if (err.response?.data) {
@@ -63,6 +70,14 @@ const Form = () => {
       }
     );
   }
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      navigate(HOMEPAGE);
+    }
+    setOpen(false);
+    navigate(HOMEPAGE);
+  };
 
   const { refetch, isLoading } = useDocument({
     name: watch("name"),
@@ -114,7 +129,7 @@ const Form = () => {
         >
           <div className="fields">
             <h1 className="enter">
-                Please enter your details to book an appointment
+              Please enter your details to book an appointment
             </h1>
             <TextField
               required
@@ -212,15 +227,30 @@ const Form = () => {
             </TextField>
             <div className="send-button">
               <Button type="submit" variant="contained" endIcon={<SendIcon />}>
-                {isLoading ? <Spinner /> : "Send"}
+                {isLoading ? (
+                  <div>
+                    <Spinner />{" "}
+                  </div>
+                ) : (
+                  "Send"
+                )}
               </Button>
             </div>
           </div>
         </Box>
+        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            Form Submitted Successfully!
+          </Alert>
+        </Snackbar>
+        ;
       </div>
     </div>
   );
 };
 
 export default Form;
-

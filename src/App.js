@@ -21,7 +21,7 @@ function Main() {
             </PrivateRoute>
           }
         />
-        <Route path='/rightpath/admin/login' element={<AdminLoginPage />} />
+        <Route path='/admin/login' element={<AdminLoginPage />} />
         <Route exact path='/apply-form' element={<Form/>} />
       </Routes>
     </BrowserRouter>

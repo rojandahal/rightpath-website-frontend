@@ -16,11 +16,13 @@ import axios from "axios";
 import { DOCUMENTAPI } from "../../Constants/ApiConstants";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-import { Link } from "react-router-dom";
-
+import Spinner from "../../Loaders/Spinner";
+import { Button } from "@mui/material";
 const Tables = () => {
   const { setError } = useForm();
   const [data, setData] = useState();
+  const [deleteId, setDeleteId] = useState();
+  const [spinnerLoad, setSpinnerLoading] = useState(false);
   const printRef = useRef();
 
   function useData() {
@@ -56,13 +58,27 @@ const Tables = () => {
   useEffect(() => {
     refetch();
     console.log(data == null ? "Null" : "NOT");
-  }, [data]);
+    axios
+      .delete(DOCUMENTAPI + "/" + deleteId, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      })
+      .then(() => {
+        setSpinnerLoading(false);
+        refetch();
+      })
+      .catch((error) => {
+        setSpinnerLoading(false);
+        console.log(error.message);
+      });
+  }, [deleteId]);
 
   const handleClick = async () => {
     const element = printRef.current;
     const canvas = await html2canvas(element);
     const data = canvas.toDataURL("image/png");
-
     const pdf = new jsPDF();
     const imgProperties = pdf.getImageProperties(data);
     const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -73,10 +89,10 @@ const Tables = () => {
   };
 
   const deleteHandler = (id) => {
-    console.log(id);
+    setDeleteId(id);
+    setSpinnerLoading(true);
   };
 
-  const rows = [];
   return (
     <TableContainer component={Paper} className="table print" ref={printRef}>
       <TableCell className="tableCell">
@@ -121,7 +137,19 @@ const Tables = () => {
                   <ArchiveIcon />
                 </TableCell>
                 <TableCell className="tableCell">
-                  <DeleteIcon type="submit" onClick={deleteHandler} />
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    onClick={() => deleteHandler(row.id)}
+                  >
+                    {spinnerLoad ? (
+                      <div>
+                        <Spinner />{" "}
+                      </div>
+                    ) : (
+                      <DeleteIcon sx={{ color: "white" }} />
+                    )}
+                  </Button>
                 </TableCell>
               </TableRow>
             ))
