@@ -2,6 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Disclaimer:
+  This project is developed for Right Path Education Pvt. Ltd. 
+  All the data used in this project is provided by Right Path Education Pvt. Ltd.
+  Additional Dummy data is used for Testimonial.
+
+Admin Panel: /rightpath/admin (User Authentication is Required)
+  The admin panel contains the information of the Appointment Booking send through form at:  /apply-form .
+  The appointment booking inforation is saved in MongoDB database through NodeJS server.
+  The backend is hosted in Heroku.
+
 ## Available Scripts
 
 In the project directory, you can run:
